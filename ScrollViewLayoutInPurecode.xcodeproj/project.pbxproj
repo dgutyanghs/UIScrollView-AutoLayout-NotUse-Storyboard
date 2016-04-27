@@ -13,6 +13,9 @@
 		082516C31CD0657B00B0E7B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082516C11CD0657B00B0E7B3 /* Main.storyboard */; };
 		082516C51CD0657B00B0E7B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082516C41CD0657B00B0E7B3 /* Assets.xcassets */; };
 		082516C81CD0657B00B0E7B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082516C61CD0657B00B0E7B3 /* LaunchScreen.storyboard */; };
+		082516D91CD065A400B0E7B3 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516D11CD065A400B0E7B3 /* ALView+PureLayout.m */; };
+		082516DA1CD065A400B0E7B3 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516D31CD065A400B0E7B3 /* NSArray+PureLayout.m */; };
+		082516DB1CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516D51CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,15 @@
 		082516C41CD0657B00B0E7B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082516C71CD0657B00B0E7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		082516C91CD0657B00B0E7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		082516D01CD065A400B0E7B3 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		082516D11CD065A400B0E7B3 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		082516D21CD065A400B0E7B3 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		082516D31CD065A400B0E7B3 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		082516D41CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		082516D51CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		082516D61CD065A400B0E7B3 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		082516D71CD065A400B0E7B3 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		082516D81CD065A400B0E7B3 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 		082516B71CD0657B00B0E7B3 /* ScrollViewLayoutInPurecode */ = {
 			isa = PBXGroup;
 			children = (
+				082516CF1CD065A400B0E7B3 /* PureLayout */,
 				082516BB1CD0657B00B0E7B3 /* AppDelegate.h */,
 				082516BC1CD0657B00B0E7B3 /* AppDelegate.m */,
 				082516BE1CD0657B00B0E7B3 /* ViewController.h */,
@@ -77,6 +90,22 @@
 				082516B91CD0657B00B0E7B3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		082516CF1CD065A400B0E7B3 /* PureLayout */ = {
+			isa = PBXGroup;
+			children = (
+				082516D01CD065A400B0E7B3 /* ALView+PureLayout.h */,
+				082516D11CD065A400B0E7B3 /* ALView+PureLayout.m */,
+				082516D21CD065A400B0E7B3 /* NSArray+PureLayout.h */,
+				082516D31CD065A400B0E7B3 /* NSArray+PureLayout.m */,
+				082516D41CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.h */,
+				082516D51CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.m */,
+				082516D61CD065A400B0E7B3 /* PureLayout+Internal.h */,
+				082516D71CD065A400B0E7B3 /* PureLayout.h */,
+				082516D81CD065A400B0E7B3 /* PureLayoutDefines.h */,
+			);
+			path = PureLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +181,9 @@
 				082516C01CD0657B00B0E7B3 /* ViewController.m in Sources */,
 				082516BD1CD0657B00B0E7B3 /* AppDelegate.m in Sources */,
 				082516BA1CD0657B00B0E7B3 /* main.m in Sources */,
+				082516D91CD065A400B0E7B3 /* ALView+PureLayout.m in Sources */,
+				082516DA1CD065A400B0E7B3 /* NSArray+PureLayout.m in Sources */,
+				082516DB1CD065A400B0E7B3 /* NSLayoutConstraint+PureLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
