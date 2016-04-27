@@ -10,7 +10,6 @@
 		082516BA1CD0657B00B0E7B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516B91CD0657B00B0E7B3 /* main.m */; };
 		082516BD1CD0657B00B0E7B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516BC1CD0657B00B0E7B3 /* AppDelegate.m */; };
 		082516C01CD0657B00B0E7B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516BF1CD0657B00B0E7B3 /* ViewController.m */; };
-		082516C31CD0657B00B0E7B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082516C11CD0657B00B0E7B3 /* Main.storyboard */; };
 		082516C51CD0657B00B0E7B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082516C41CD0657B00B0E7B3 /* Assets.xcassets */; };
 		082516C81CD0657B00B0E7B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082516C61CD0657B00B0E7B3 /* LaunchScreen.storyboard */; };
 		082516D91CD065A400B0E7B3 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 082516D11CD065A400B0E7B3 /* ALView+PureLayout.m */; };
@@ -25,7 +24,6 @@
 		082516BC1CD0657B00B0E7B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		082516BE1CD0657B00B0E7B3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		082516BF1CD0657B00B0E7B3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		082516C21CD0657B00B0E7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		082516C41CD0657B00B0E7B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082516C71CD0657B00B0E7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		082516C91CD0657B00B0E7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				082516BC1CD0657B00B0E7B3 /* AppDelegate.m */,
 				082516BE1CD0657B00B0E7B3 /* ViewController.h */,
 				082516BF1CD0657B00B0E7B3 /* ViewController.m */,
-				082516C11CD0657B00B0E7B3 /* Main.storyboard */,
 				082516C41CD0657B00B0E7B3 /* Assets.xcassets */,
 				082516C61CD0657B00B0E7B3 /* LaunchScreen.storyboard */,
 				082516C91CD0657B00B0E7B3 /* Info.plist */,
@@ -167,7 +164,6 @@
 			files = (
 				082516C81CD0657B00B0E7B3 /* LaunchScreen.storyboard in Resources */,
 				082516C51CD0657B00B0E7B3 /* Assets.xcassets in Resources */,
-				082516C31CD0657B00B0E7B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,14 +186,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		082516C11CD0657B00B0E7B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				082516C21CD0657B00B0E7B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		082516C61CD0657B00B0E7B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ScrollViewLayoutInPurecode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AY.ScrollViewLayoutInPurecode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -307,6 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ScrollViewLayoutInPurecode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AY.ScrollViewLayoutInPurecode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
