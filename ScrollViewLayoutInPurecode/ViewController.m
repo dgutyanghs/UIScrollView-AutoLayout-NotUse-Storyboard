@@ -35,8 +35,6 @@
     scrollView.userInteractionEnabled = YES;
     scrollView.scrollEnabled = YES;
     scrollView.pagingEnabled = YES;
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(generateRandomPages)];
-    [scrollView addGestureRecognizer:longPress];
     self.scrollView = scrollView;
     
     [self.view addSubview:scrollView];
@@ -61,50 +59,59 @@
 
 - (void)generateRandomPages
 {
-    int pages = arc4random() % 3 + 2;
+    int pages = arc4random() % 10 + 5;
     [self setupPages:pages];
 }
 
 - (void)setupPages:(int)pages
 {
-        NSArray *subviews = self.containView.subviews;
-        for (UIView *view in subviews) {
-            [view removeFromSuperview];
-        }
-        [self.contentWidthConstraint autoRemove];
-        self.contentWidthConstraint = [self.containView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:pages];
+    //1. clear the previous pageLabel
+    NSArray *subviews = self.containView.subviews;
+    for (UIView *view in subviews) {
+        [view removeFromSuperview];
+    }
+    [self.contentWidthConstraint autoRemove];
+
+    self.contentWidthConstraint = [self.containView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:pages];
+
+    CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width / 2.0;
+    UILabel *prevLabel = nil;
+    for (int i = 0; i < pages; ++i) {
+        UILabel *pageLabel = [UILabel newAutoLayoutView];
+        pageLabel.text = [NSString stringWithFormat:@"Page %d of %d", i + 1, pages];
+        pageLabel.textAlignment = NSTextAlignmentCenter;
+        pageLabel.backgroundColor = [UIColor yellowColor];
         
-        UILabel *prevLabel = nil;
-        for (int i = 0; i < pages; ++i) {
-            UILabel *pageLabel = [[UILabel alloc] initWithFrame:self.scrollView.bounds];
-            pageLabel.text = [NSString stringWithFormat:@"Page %d of %d", i + 1, pages];
-            pageLabel.textAlignment = NSTextAlignmentCenter;
-            pageLabel.backgroundColor = [UIColor yellowColor];
-            [self.containView addSubview:pageLabel];
-            
-            [pageLabel autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
-            [pageLabel autoPinEdgeToSuperviewEdge:ALEdgeTop];
-            [pageLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-            
-            if (!prevLabel) {
-                // Align to containView
-                [pageLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-            } else {
-                // Align to prev label
-                [pageLabel autoConstrainAttribute:ALAttributeLeading toAttribute:ALAttributeTrailing ofView:prevLabel];
-            }
-            
-            if (i == pages - 1) {
-                // Last page
-                [pageLabel autoPinEdgeToSuperviewEdge:ALEdgeRight];
-            }
-            
-            prevLabel = pageLabel;
+        UIButton *tipsButton = [UIButton newAutoLayoutView];
+        [tipsButton setTitle:@"press to reset" forState:UIControlStateNormal] ;
+        [tipsButton addTarget:self action:@selector(generateRandomPages) forControlEvents:UIControlEventTouchUpInside];
+        tipsButton.userInteractionEnabled = YES;
+        tipsButton.backgroundColor = [UIColor redColor];
+        [self.containView addSubview:pageLabel];
+        [self.containView addSubview:tipsButton];
+        
+        [pageLabel autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:0.5];
+        [pageLabel autoSetDimension:ALDimensionHeight toSize:30.0];
+        [pageLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+        
+        [tipsButton autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:0.5];
+        [tipsButton autoSetDimension:ALDimensionHeight toSize:30.0];
+        [tipsButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pageLabel withOffset:4];
+        [tipsButton autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:pageLabel];
+        
+        if (!prevLabel) {
+            [pageLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:pageWidth / 2.0];
+        } else {
+            [pageLabel autoConstrainAttribute:ALAttributeLeading toAttribute:ALAttributeTrailing ofView:prevLabel withOffset:pageWidth];
         }
-        self.scrollView.contentOffset = CGPointZero;
-    
-        [self.view setNeedsLayout];
-        [self.view layoutIfNeeded];
+        
+        prevLabel = pageLabel;
+        
+    }
+    self.scrollView.contentOffset = CGPointZero;
+
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
 }
 
 - (void)didReceiveMemoryWarning {
