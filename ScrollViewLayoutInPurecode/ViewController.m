@@ -42,14 +42,14 @@
     
     [containView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:scrollView];
     [containView autoPinEdge:ALEdgeTop  toEdge:ALEdgeTop  ofView:scrollView];
-    [scrollView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:containView];
-    [scrollView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:containView];
-    [scrollView autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:containView];
+    [containView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:scrollView];
+    [containView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:scrollView];
+    [containView autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:scrollView];
     
-    NSLayoutConstraint *contentWidthConstraint = [self.scrollView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:containView];
+    NSLayoutConstraint *contentWidthConstraint = [containView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:scrollView];
     self.contentWidthConstraint = contentWidthConstraint;
     
-    [self.view autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:scrollView];
+    [scrollView autoPinEdge:ALEdgeTrailing toEdge:ALEdgeTrailing ofView:self.view];
     [scrollView autoPinToBottomLayoutGuideOfViewController:self withInset:0];
     [scrollView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view];
     [scrollView autoPinEdge:ALEdgeLeading toEdge:ALEdgeLeading ofView:self.view];
