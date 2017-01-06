@@ -4,7 +4,7 @@
 <ul>
 <li><a href="#orgheadline2">1. UIScrollView AutoLayout的解决方法</a>
 <ul>
-<li><a href="#orgheadline1">1.1. 相对于普通的View来说, UIScrollView 的AutoLayout 比较特殊.因为它的 left/right/top/bottom space 是相对于 UIScrollView的 contentSize 而不是 bounds 来确定的.如果你尝试用 UIScrollView和它 subview 的left/right/top/bottom 来互相决定大小的时候，系统会警告你"Has ambiguous scrollable content width/height".</a></li>
+<li><a href="#orgheadline1">1.1. UIScrollView的特殊性</a></li>
 </ul>
 </li>
 </ul>
@@ -13,7 +13,13 @@
 
 # UIScrollView AutoLayout的解决方法<a id="orgheadline2"></a>
 
-## 相对于普通的View来说, UIScrollView 的AutoLayout 比较特殊.因为它的 left/right/top/bottom space 是相对于 UIScrollView的 contentSize 而不是 bounds 来确定的.如果你尝试用 UIScrollView和它 subview 的left/right/top/bottom 来互相决定大小的时候，系统会警告你"Has ambiguous scrollable content width/height".<a id="orgheadline1"></a>
+## UIScrollView的特殊性<a id="orgheadline1"></a>
+
+相对于普通的View来说, UIScrollView 的AutoLayout 比较特殊.
+因为它的 left/right/top/bottom space 是相对于 UIScrollView的 contentSize,
+而不是 bounds 来确定的.
+如果你尝试用 UIScrollView和它 subview 的left/right/top/bottom 来互相决定大小的时候，
+系统会警告你"Has ambiguous scrollable content width/height".
 
 **解决方法:**
 **step 1** : 在scrollView和它的subviews之间,先添加一个 containView,
